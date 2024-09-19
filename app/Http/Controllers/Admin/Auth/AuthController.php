@@ -39,7 +39,7 @@ class AuthController extends Controller
     
     public function login(LoginRequest $request)
     {
-        if(Auth::guard('admin')->attempt($request->only(['email', 'password'])))
+        if(Auth::guard('admin')->attempt($request->only(['email', 'password']) , $request->remember))
         {
             return redirect(route('admin.dashboard'));
         }
@@ -52,7 +52,7 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::guard('admin')->logout();
-
+        session()->flush();
         return redirect(route('admin.loginForm'));
     }
 }

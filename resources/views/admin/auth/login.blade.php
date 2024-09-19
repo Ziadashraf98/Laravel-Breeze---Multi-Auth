@@ -59,6 +59,14 @@
 															</span>
 															@enderror
 														</div>
+														<div class="form-group mb-0 justify-content-end">
+															<div class="checkbox">
+																<div class="custom-checkbox custom-control">
+																	<input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-2" name="remember">
+																	<label for="checkbox-2" class="custom-control-label mt-1">Remember me</label>
+																</div>
+															</div>
+														</div>
 														<button class="btn btn-main-primary btn-block">Unlock</button>
 													</form>
 												</div>
