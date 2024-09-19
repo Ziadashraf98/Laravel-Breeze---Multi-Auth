@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\Auth\RegisterRequest;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
@@ -43,7 +44,9 @@ class AuthController extends Controller
             return redirect(route('admin.dashboard'));
         }
 
-        return redirect(route('admin.loginForm'));
+        throw ValidationException::withMessages([
+            'email' => trans('auth.failed'),
+        ]);
     }
 
     public function logout()
